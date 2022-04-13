@@ -1,0 +1,19 @@
+server:
+  http_port: 8080
+  grpc_port: 8989
+  log_level: DEBUG
+service:
+  user_ads_domain: http://new-user-ads-app
+  ad_listing_domain: https://gateway.chotot.org/v2/public/ad-listing
+  spine_domain: http://10.60.3.47:5656
+  access_trade_domain: https://app.accesstrade.vn
+  schema_registry_domain: http://schema.chotot.org
+mongodb:
+  connection_string: mongodb://10.60.3.126:27017
+  pool_size: 20
+kafka:
+  brokers: 10.60.3.120,10.60.3.121,10.60.3.122
+  consumer_group: affiliate_first_aa1
+  topic_ads: blocketdb.public.ads
+  topic_action_states: blocketdb.public.action_states
+  init_offset: none

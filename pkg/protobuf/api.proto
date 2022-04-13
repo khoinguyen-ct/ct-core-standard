@@ -1,0 +1,40 @@
+syntax = "proto3";
+option go_package = "github.com/carousell/ct-grpc-protobuf";
+
+package chotot.api.v1.ad_listing;
+
+import "google/api/annotations.proto";
+
+service AdListingService {
+    rpc GetAdInfo(GetAdInfoRequest) returns (GetAdInfoResponse) {
+        option (google.api.http) = {
+            get: "/v1/public/ad-listing/{list_id}"
+        };
+    }
+}
+
+message GetAdInfoRequest {
+    int64 list_id = 1;
+}
+
+message GetAdInfoResponse {
+    AdInfo ad = 1;
+    repeated Parameters parameters = 2;
+}
+
+message AdInfo {
+    int64 ad_id = 1;
+    int64 list_id = 2;
+    string subject = 3;
+    string body = 4;
+    repeated string images = 5;
+}
+
+message Parameters {
+    string id = 1;
+    string value = 2;
+    string label = 3;
+}
+
+
+
